@@ -2,7 +2,7 @@
 
 ### Milestones
 [X] Initial project of structure
-[ ] Schema evaluation and improvement
+[X] Schema evaluation and improvement
 [ ] Creating initial structure 
 [ ] Test phase 1 - Relations, Queries, 
 [ ] Node.js implementation
