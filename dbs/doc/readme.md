@@ -3,7 +3,8 @@
 ### Milestones
 - [X] Initial project of structure
 - [X] Schema evaluation and improvement
-- [ ] Creating initial structure 
+- [X] Creating initial structure 
+- [ ] Indexing and relations ind DB 
 - [ ] Test phase 1 - Relations, Queries, 
 - [ ] Node.js implementation
 - [ ] Test phase 2
