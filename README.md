@@ -20,9 +20,9 @@
 
 ##Project
 
-Nazwa projektu: “Snap it out (SiO2)”
-Członkowie zespołu: Magdalena Lipka, Piotr Szulc, Oskar Gniewek
-Tech-lead: Oskar Gniewek
+Nazwa projektu: “Snap it out (SiO2)” <br>
+Członkowie zespołu: Magdalena Lipka, Piotr Szulc, Oskar Gniewek <br>
+Tech-lead: Oskar Gniewek aka pinholeye <br>
 
 1.Problem biznesowy: Zarządzanie projektami w firmie
 
