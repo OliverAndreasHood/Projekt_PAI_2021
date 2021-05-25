@@ -4,7 +4,7 @@
 - [X] Initial project of structure
 - [X] Schema evaluation and improvement
 - [X] Creating initial structure 
-- [ ] Indexing and relations ind DB 
+- [X] Indexing and relations ind DB 
 - [ ] Test phase 1 - Relations, Queries, 
 - [ ] Node.js implementation
 - [ ] Test phase 2
@@ -18,4 +18,4 @@ BS Administration tool:
 &nbsp;&nbsp;PHP version 7.4.1  
 
 ### Structure
-> Check "DB Architecture.xlsx"  
+> Check DB Architecture.xlsx or queries.sql
