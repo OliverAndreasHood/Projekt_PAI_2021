@@ -12,7 +12,7 @@
 
 ## Terminarz:
 - [x] 04.05 -> Zgłoszenie zespołów 
-- [ ] 10.05 -> Pierwszy draft projektu (podpunkt 5: a i b) 
+- [x] 10.05 -> Pierwszy draft projektu (podpunkt 5: a i b) 
 - [ ] 24.05 -> Drugi draft projektu (podpunkt 5: c i d) 
 - [ ] 07.06! -> Wstawienie na GitHub wstępnych implementacji projektu 
 - [ ] 30.06 -> Zakończenie prac nad aplikacją i prezentacja wyników
@@ -31,7 +31,7 @@ Problem biznesowy opiera się o zarządzaniu projektami w firmie. Celem jest stw
 2.Wymagania systemowe i funcjonalne
 
 Import potrzebnych bibliotek:
-- SQL (PostgreSQL)
+- SQL (MySQL)
 - React 
 - JS
 - Recharts (wykresy)
@@ -76,4 +76,80 @@ Podstrony:
 5. Implementacja i testowanie
 6. Podsumowanie
 
+
+
+ Harmonogram prac i zespół projektowy start - 25.05
+
+1.Inicjacja środowiska w NodeJS - Magda - 3 dni
+	Pobranie potrzebnych paczek
+2.Poączenie z serwerem - Magda - tydzień
+3.Polączenie dockera - Magda - tydzień
+4.Implemntacja baz danych + docker - Piotr - 3 dni
+5.Inicjacja środowiska React - Oskar - 3 dni
+6.Kolumny i caly interface CSS - Oskar - tydzien 
+7.Funcjonalnosci - Oskar + Piotr - 20 dni
+	Logowanie uzytkownikow - Piotr - 4 dni
+	dodawanie/usuwanie taskow - Oskar - 3 dni
+	drag and drop - Oskar - tydzien
+	archiwizacja skonczonych taksow - Oskar - 4 dni
+	ważność tasków - Oskar - 3 dni
+
+d. Analiza zagadnienia i jego modelowanie
+
+Baza danych
+
+Nazwa	PK =	Primary Key				
+Kolumny	U =	Unique				
+Typy	N=	Null				
+Users DB (USER)						
+User_ID (PK)	Name (U)	Password	Alias (U)	Country (N)	Register	
+INT 11	VARCHAR 255	VARCHAR 255	VARCHAR 6	VARCHAR 255	DATE	
+						
+Fields DB (FIELDS)						
+Field_ID (PK)	Name	Alias (U)				
+INT 11	VARCHAR 255	VARCHAR 4				
+						
+Fields-User (MID1)						
+ID (PK)	User	Field				
+INT 11	User_ID	Field_ID				
+						
+Organisation DB (ORG)						
+Org_ID (PK)	Name (U)	Leader	Description (N)	Private	Register	
+INT 11	VARCHAR 255	User_ID	VARCHAR 5000	BOOLEAN	DATE	
+						
+Org-Users (MID2)						
+ID (PK)	Org	User				
+INT 11	Org_ID	User_ID				
+						
+Projects DB (PROJ)						
+Proj_ID (PK)	Name (U)	Organisation	P_Leader	Description (N)	Private	Create_date
+INT 11	VARCHAR 255	Org_ID	User_ID	VARCHAR 5000	BOOLEAN	DATE
+						
+Proj-Users (MID3)						
+ID (PK)	Proj	User				
+INT 11	Proj_ID	User_ID				
+						
+Charts DB (CHART)						
+Chart_ID (PK)	Name	Project	C_Leader	Description (N)	Private	
+INT 11	VARCHAR 255	Proj_ID	User_ID	VARCHAR 5000	BOOLEAN	
+						
+Chart-User (MID4)						
+ID (PK)	Chart	User				
+INT 11	Chart_ID	User_ID				
+						
+Columns DB (COL)						
+Col_ID (PK)	Name	Chart	Archive	Position		
+INT 11	VARCHAR 50	Chart_ID	BOOLEAN	Int		
+						
+Notes DB (NOTE)						
+Note_ID (PK)	Title	Column (U)	Field	Color	Owner	Description (N)
+INT 11	VARCHAR 50	Col_ID	Field_ID	#[HEX] (Int?)	User_ID	VARCHAR 5000
+						
+c.d.->	Date_Start	Date_End	Urgent	Done	Archive	
+c.d.->	DATE	DATE	BOOLEAN	BOOLEAN	BOOLEAN	
+						
+						
+Note-User (MID5)						
+ID (PK)	Note	User				
+INT 11	Note_ID	User_ID	
 
