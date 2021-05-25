@@ -9,7 +9,7 @@
 - [ ] Node.js implementation
 - [ ] Test phase 2
 - [ ] Minor or major repairs
-- [ ] Final test and developement
+- [ ] Final test and development
 
 ### Info
 MySQL Version: 5.7.24  
