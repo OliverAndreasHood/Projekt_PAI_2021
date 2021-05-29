@@ -1,0 +1,19 @@
+{
+  "name": "t90",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ap.js",
+  "scripts": {
+    "test": "node ap.js",
+    "dev": "node ap.js",
+    "start": "node ap.js"
+  },
+  "author": "Magda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "loglevel": "^1.7.1",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.10.0"
+  }
+}
