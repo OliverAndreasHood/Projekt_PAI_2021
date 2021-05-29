@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+    node:
+        image: "node:13"
+        user: "node"
+        working_dir: /home/node/app
+        enviroment:
+            - PORT=5000
+            - NODE_ENV=prod
+            - BD_HOST=mysql
+            - DB_USER=root
+            - DB_PASSWORD=pass
+            - DB_DATABASE=docker
+        volumes:
+            - ./:/home/node/app
+        ports:
+            - "81:5000"
+        comand: "npm start"
+    mysql:
+        image: "mysql:latest"
+        volumes:
+            - ./mysql/:/docker-entrypint-initdb.d
+        environment: :
+            - MYSQL_ROOT_PASSWORD=pass
+        ports:
+            - "3306:3306"
+    phpmyadmin:
+        image: "phpmyadmin/phpmyadmin:latest"
+        links:
+            - "mysql:db"
+        ports:
+            - "8081:80"
+    client:
+        build:
+            context: ./client
+        ports:
+            - "80:3000"
+        volumes:
+            - ./client:/client
