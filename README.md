@@ -1,4 +1,4 @@
-##Projekt
+## Projekt
 
 Nazwa projektu: <b> “Snap it out (SiO2)” </b><br>
 Członkowie zespołu: 
