@@ -1,12 +1,3 @@
-# Snap it out (SiO2)
-
-## Terminarz:
-- [x] 04.05 -> Zgłoszenie zespołów 
-- [x] 10.05 -> Pierwszy draft projektu (podpunkt 5: a i b) 
-- [X] 24.05 -> Drugi draft projektu (podpunkt 5: c i d) 
-- [ ] 07.06! -> Wstawienie na GitHub wstępnych implementacji projektu 
-- [ ] 30.06 -> Zakończenie prac nad aplikacją i prezentacja wyników
-
 ##Projekt
 
 Nazwa projektu: <b> “Snap it out (SiO2)” </b><br>
