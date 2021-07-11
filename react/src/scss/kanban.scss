@@ -1,0 +1,227 @@
+// Stylesheet for kanban component
+
+// Theme Colors, in same order as colors.js
+$color1: #084c61;
+$color2: #db504a;
+$color3: #e3b505;
+$color4: #4f6d7a;
+$color5: #56a3a6;
+$textColor1: black;
+$textColor2: white;
+
+#kanban::-webkit-scrollbar{
+    height: 5px;
+}
+
+.kanban-column-cards::-webkit-scrollbar{
+    width: 0px;
+}
+
+#kanban::-webkit-scrollbar-track,
+.kanban-column-cards::-webkit-scrollbar-track{
+  background: $color2;
+}
+
+#kanban::-webkit-scrollbar-thumb,
+.kanban-column-cards::-webkit-scrollbar-thumb{
+  background: $color3;
+}
+
+#kanban::-webkit-scrollbar-thumb:hover,
+.kanban-column-cards::-webkit-scrollbar-thumb:hover{
+  background: $color3;
+}
+
+#kanban{ 
+    position: relative;
+    display: flex;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background: $color1;
+    border-radius: 0px;
+    padding: 20px;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    z-index: 1;
+}
+
+.kanban-column{
+    position: relative;
+    display: flex;
+    width: 250px;
+    min-width: 250px;
+    height: calc(100% - 40px);
+    margin: 0;
+    padding: 20px;
+    background-color: $color5;
+    border-radius: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.highlight-kanban-column-holder,
+.highlight-kanban-column{
+    opacity: 0.5; 
+}
+
+.kanban-column-holder{
+    margin-left: 25px;
+}
+
+.kanban-column-holder:nth-child(1){
+    margin-left: 0px !important;
+}
+
+.kanban-column .kanban-column-cards{
+    position: relative;
+    display: flex;
+    width: 250px;
+    min-width: 250px;
+    height: calc(100% - 0px);
+    margin: 0;
+    padding: 0px;
+    background-color: #56a3a6;
+    border-radius: 0px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    opacity: 1;
+}
+
+.kanban-column .kanban-column-details{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 20px;
+    min-height: 20px;
+    max-height: 20px;
+}
+
+.kanban-column .kanban-column-details h3{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-direction: row;
+    min-width: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    white-space: nowrap;
+    color: $textColor1;
+}
+
+.kanban-column .kanban-column-card{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $color1;
+    height: fit-content;
+    min-height: 80px;
+    width: calc(100% - 0px);
+    border-radius: 5px;
+    padding: 0px;
+    overflow: hidden;
+    margin-top: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+.kanban-column .kanban-column-card:nth-child(1){
+    margin-top: 0px !important;
+}
+
+.kanban-column:hover,
+.kanban-column .kanban-column-card:hover{
+    opacity: 1;
+}
+
+.kanban-column .kanban-column-card div{
+    position: relative;
+    display: flex;
+    width: calc(100% - 20px);
+    height: fit-content;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: transparent;
+    margin: 0;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 2.5px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.kanban-column .kanban-column-card div:nth-child(1){
+    margin-top: 0px !important;
+    background: $color4 !important;
+    padding: 10px !important;
+    width: calc(100% - 20px) !important;
+}
+
+.kanban-column .kanban-column-card div h4,
+.kanban-column .kanban-column-card div p{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    flex-direction: row;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.kanban-column .kanban-column-card div p{
+    font-size: 10px;
+}
+
+.kanban-column .kanban-column-card .delete-card-icon:hover,
+.kanban-column .kanban-column-details .delete-column-icon:hover{
+    opacity: 0.3;
+}
+
+.kanban-column .kanban-column-card span{
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 5px;
+    font-size: 10px;
+}
