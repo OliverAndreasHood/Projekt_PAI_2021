@@ -29,7 +29,9 @@ Funkcje
 c) Każdy Projekt posiada 1 tablicę kanban, z której może korzystać każdy użytkownik tego projektu.
 
 d) Każda tablica Kanban ma funkcjonalność "przeciągnij i upuść" w tym edycję kolumn i zadań, które może tworzyć dowolny użytkownik tego projektu.
-3 domyślne kolumny o nazwach : <b>ZADANIA</b> (TASKS) , <b>W TOKU</b> (IN PROGRES) i <b>ZROBIONE</b>.
+3 domyślne kolumny o nazwach : 
+|<b>ZADANIA</b> (TASKS)|<b>W TOKU</b> (IN PROGRES)|<b>ZROBIONE</b>|
+||||
 
 e) Każda kolumna tablicy Kanban będzie mieć zadania (TASKI), które można przeciągać i przenosić, które może tworzyć dowolny użytkownik tego projektu, ale mogą być usuwane tylko przez użytkownika z rangą "Manager" organizacji (który jest również kierownikiem projektów tej organizacji).
 
