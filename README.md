@@ -1,13 +1,13 @@
 # <b> “Snap it out” </b>
 
-### 1.Problem biznesowy: Zarządzanie projektami w firmie 
+### 1. Problem biznesowy: Zarządzanie projektami w firmie 
 
   Snap It Out jest aplikacją pozwalającą zarządzać zadaniami za pomocą tablic. Umożliwia zalogowanie się oraz rozporządzanie zadaniami w obrębie organizacji oraz projektów dla użytkowników w zależności od ich uprawnień. Za pomocą tablic możliwe jest systematyzowanie zadań oraz przypisywanie ich do użytkowników oraz etapów pracy. 
   Aplikacja ma na celu ukazywać prosty i przejrzysty sposób planowania, rozdziału oraz kontroli zadań. Pozwala na utworzenie i zarządzanie projektami w obrębie organizacji, widoczny podział etapów projektu, a także przypisanie poszczególnych zadań do użytkowników. 
 Zaproponowana aplikacja jest tylko elementem postawionego problemu biznesowego, który ma za zadanie uzupełniać obraną strategię zarządzania organizacją.
 
 
-### 2.Wymagania systemowe i funcjonalne
+### 2. Wymagania systemowe i funcjonalne
 Import potrzebnych bibliotek:
 - React 
 - NodeJS
@@ -43,13 +43,12 @@ f) Każde zadanie kolumny tablicy Kanban posiada atrybuty takie jak:
 - Data rozpoczęcia, 
 - Planowa data zakończenia/Datę zakończenia,
 - Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem:
-	'''diff
-	- Zielony
-	- Niebieski
-	- Żółty
-	- Pomarańczowy
-	- Czerwony
-	'''
+  - Zielony
+  - Niebieski
+  - Żółty
+  - Pomarańczowy
+  - Czerwony
+
 <b> Wszyscy użytkownicy projektu będą mogli zmienić kolor tylko swoich zadań. </b>
 
 Baza danych MySQL zawiera informacje o:
@@ -64,12 +63,12 @@ Baza danych MySQL zawiera informacje o:
 
 ### 3. Harmonogram prac i zespół projektowy
 
-#### Członkowie zespołu: 
+#### 3.1 Członkowie zespołu: 
 - Magdalena Lipka aka Frog-Has-Curls, 
 - Piotr Szulc aka OAH, 
 - Oskar Gniewek aka pinholeye (<b>Tech-lead</b>).<br>
 
-#### Harmonogram
+#### 3.2 Harmonogram
 - 1.Inicjacja środowiska w NodeJS - Frog-Has-Curls 
 	- Przygotowanie potrzebnych paczek  
 - 2.Połączenie z serwerem - Frog-Has-Curls  
