@@ -15,7 +15,6 @@ Import potrzebnych bibliotek:
 - SQL (MySQL) - preferowany program XAMPP Apache 
 
 #### 2.1 Model Architektury
-![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
 
 W architekturze aplikacji wykorzystano Model-View-Controller, dzieląc ją na 3 warstwy: kontroler, który odpowiada za zarządzanie zapytaniami, oraz komunikuje się z widokiem, model, który zarządza logiką danych oraz komunikuje się z bazą danych (zarządza danymi) oraz widok, który odpowiada za prezentację otrzymanych danych. 
 Komunikacja między kontrolerem oraz modelem jest zarządzana przez Express, model – MySQL, natomiast za widok odpowiada React. 
@@ -80,13 +79,41 @@ Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wyk
 	- ważność tasków - pinholeye
 
 ### 4. Analiza zagadnienia i jego modelowanie
+Model Architektury:
+![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
 
 ### 5. Implementacja i testowanie
+Na każdym etapie komunikacji między metodami i funkcjonalnościami sprawdzano treść komunikatów z wykorzystaniem console.log pod kątem ich poprawności.
 
 #### System uwierzytelniania:
-System wymaga założenia konta przez administratora (konto Admin) w tym podania nazwy, maila oraz hasła. Następnie próbę zalogiwania się jest sprawdzana i użytkownik uzyskuje odpowiedni Token zachowywany w atrybucie "this.state."
+![login1](https://user-images.githubusercontent.com/76792018/127058585-70c2aff5-4cd1-4642-93e4-3e03b47bfa0b.png)
 
+System wymaga założenia konta przez administratora (konto Admin) w tym podania nazwy, maila oraz hasła. Następnie próba zalogiwania się jest sprawdzana i użytkownik uzyskuje odpowiedni Token i status zapisywany w localStorage przeglądarki dzięki czemu ma dostęp do pozostałych funkcjonalności aplikacji.
 ```
+  async fetchUser(){
+    // Used to get logged in user data from the database/backend using api
+    var { success, error, data } = await this.state.api.user();
+    if(success){
+      if(data){
+        this.setState({
+          ...this.state,
+          user: data.user ? data.user : data,
+          allOrganizations: data.allOrganizations ? data.allOrganizations : [],
+          allUsers: data.allUsers ? data.allUsers : [],
+          booleans: {
+            ...this.state.booleans,
+            userReady: false,
+            userFetched: true,
+            isLoggedIn: true,
+          }
+        });
+        
+        await this.setupSocket();
+        this.readyUser();
+      }
+    }
+  }
+
   async onLogin(email, password){
     // Used to login user and receive the authorization token from the database/backend using api
     var { success, error, data } = await this.state.api.login({email, password});
@@ -116,13 +143,37 @@ System wymaga założenia konta przez administratora (konto Admin) w tym podania
 ```
 
 #### Funkcjonalność "przeciągnij i upuść"
+Funkcjonalność realizowana na dwóch płaszczyznach: przenoszenie całych kolumn
+```
+async toggleMoveColumns(){
+    // Called when move columns button is clicked
+    // To check if logged in user can move columns
 
-#### Struktura tablic
+    var IsMemInOrg = await this.isUserMemberInOrganization(this.state.active_organization.id, this.state.user);
+    var isMemInProject = await this.isUserMemberInProject(this.state.user);
 
-#### Atrybuty zadań - zdefiniowane w strukturach bazy danych mają swoje odzwierciedlenie w :
+    if(IsMemInOrg && isMemInProject){
+      // if user is member in project and organization only then user can move columns
+      this.setState({
+        ...this.state,
+        booleans: {
+          ...this.state.booleans,
+          moveColumns: this.state.booleans.moveColumns ? false : true,
+        }
+      });
+    }
+  }
+```
+
+oraz działające na podobnej zasadzie przenoszenie zadań.
+
+#### Struktura tablic i Atrybuty zadań - zdefiniowane w strukturach bazy danych:
 1. Data rozpoczęcia, 
 2. Planowa data zakończenia/Datę zakończenia,
 3. Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem.
+
+<b>Struktura:</b>
+![kanban1](https://user-images.githubusercontent.com/76792018/127059201-facb7305-dbb5-4d2d-97b4-0c66c3b0c427.png)
 
 ### 6. Podsumowanie
 W ramach projektu SnapItOut zrealizowano więszkość zamierzonych funkcjonalności. Zaimplementowane rozwiązania działają bez zarzutów. Komunikacja między poszczególnymi instancjami aplikacji przebiega poprawnie i realizują założenia projektu.
