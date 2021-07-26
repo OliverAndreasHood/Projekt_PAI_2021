@@ -42,12 +42,7 @@ e) Każda kolumna tablicy Kanban będzie mieć zadania (TASKI), które można pr
 f) Każde zadanie kolumny tablicy Kanban posiada atrybuty takie jak:
 - Data rozpoczęcia, 
 - Planowa data zakończenia/Datę zakończenia,
-- Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem:
-  - Zielony
-  - Niebieski
-  - Żółty
-  - Pomarańczowy
-  - Czerwony
+- Ważność zadania od 1 do 5 oznaczane dodatkowo odpowiednim kolorem.
 
 <b> Wszyscy użytkownicy projektu będą mogli zmienić kolor tylko swoich zadań. </b>
 
@@ -89,12 +84,42 @@ Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wyk
 ### 5. Implementacja i testowanie
 
 #### System uwierzytelniania:
+System wymaga założenia konta przez administratora (konto Admin) w tym podania nazwy, maila oraz hasła. Następnie próbę zalogiwania się jest sprawdzana i użytkownik uzyskuje odpowiedni Token zachowywany w atrybucie "this.state."
+
+```
+  async onLogin(email, password){
+    // Used to login user and receive the authorization token from the database/backend using api
+    var { success, error, data } = await this.state.api.login({email, password});
+
+    if(success){
+      await localStorage.setItem("auth_token", data.token);
+      this.setState({
+        ...this.state,
+        booleans: {
+          ...this.state.booleans,
+          isLoggedIn: true,
+        }
+      });
+      
+      this.fetchUser();
+    }else{
+      console.log(data.message ? data.message : null);
+      this.setState({
+        ...this.state,
+        booleans: {
+          ...this.state.booleans,
+          isLoggedIn: false
+        }
+      });
+    }
+  }
+```
 
 #### Funkcjonalność "przeciągnij i upuść"
 
-#### Struktura tablic:
+#### Struktura tablic
 
-#### Atrybuty zadań:
+#### Atrybuty zadań - zdefiniowane w strukturach bazy danych mają swoje odzwierciedlenie w :
 1. Data rozpoczęcia, 
 2. Planowa data zakończenia/Datę zakończenia,
 3. Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem.
