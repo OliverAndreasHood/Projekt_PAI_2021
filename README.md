@@ -15,7 +15,7 @@ Import potrzebnych bibliotek:
 - SQL (MySQL) - preferowany program XAMPP Apache 
 
 #### 2.1 Model Architektury
-![model](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
+![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
 
 W architekturze aplikacji wykorzystano Model-View-Controller, dzieląc ją na 3 warstwy: kontroler, który odpowiada za zarządzanie zapytaniami, oraz komunikuje się z widokiem, model, który zarządza logiką danych oraz komunikuje się z bazą danych (zarządza danymi) oraz widok, który odpowiada za prezentację otrzymanych danych. 
 Komunikacja między kontrolerem oraz modelem jest zarządzana przez Express, model – MySQL, natomiast za widok odpowiada React. 
@@ -59,7 +59,8 @@ Baza danych MySQL zawiera informacje o:
 - kolumnach wewnątrz tablic Kanban
 - zadaniach wewnątrz kolumn 
 
-#### 2.3 Model komunikacji asychroniczny  
+#### 2.3 Model komunikacji
+Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wykonywanie operacji, nie będąc ograniczonym przez kolejność poleceń kodu. Dzięki temu możliwe jest wykonywanie kodu, który nie jest zależny od rozpoczętej (i jeszcze niezakończonej) operacji. Wykorzystując wyrażenie await, wstrzymujemy wywołanie asynchronicznych funkcji do chwili otrzymania deklaracji – np. komunikaty o udanym połączeniu.
 
 ### 3. Harmonogram prac i zespół projektowy
 
@@ -87,6 +88,19 @@ Baza danych MySQL zawiera informacje o:
 
 ### 5. Implementacja i testowanie
 
-### 6. Podsumowanie
-      
+#### System uwierzytelniania:
 
+#### Funkcjonalność "przeciągnij i upuść"
+
+#### Struktura tablic:
+
+#### Atrybuty zadań:
+1. Data rozpoczęcia, 
+2. Planowa data zakończenia/Datę zakończenia,
+3. Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem.
+
+### 6. Podsumowanie
+W ramach projektu SnapItOut zrealizowano więszkość zamierzonych funkcjonalności. Zaimplementowane rozwiązania działają bez zarzutów. Komunikacja między poszczególnymi instancjami aplikacji przebiega poprawnie i realizują założenia projektu.
+W ramach dalszego rozwijania aplikacji, można podjąć się:
+- implementacji funkcjonalności serializacji zadań z wykorzystaniem skryptów w innych językach programowania, 
+- konteneryzacja poszczególnych instancji aplikacji,    
