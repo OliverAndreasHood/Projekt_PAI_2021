@@ -21,18 +21,17 @@ Komunikacja między kontrolerem oraz modelem jest zarządzana przez Express, mod
 	
 #### 2.2 Funkcjonalnosci   
 
-Funkcje
-- Bezpieczny system uwierzytelniania, aby umożliwić użytkownikom logowanie się do aplikacji przy użyciu adresu e-mail/nazwy użytkownika i hasła.
-- Typy użytkowników cechują się różnymi uprawnieniami. Podgrupy dostępne dla <b>Snap It Out</b> to”:
-<b>Admin</b> - uprawnienia do zarządzania użytkownikami oraz organizacjami - ogólne zarządządzanie dostepem, tworzenie oraz usuwanie kont w tym przypisywanie do konkretnych organizacji, zmiana typu użytkowników (zmiana roli) oraz edycja szczegółów organizacji.
-<b>Manager</b> - uprawnienia do zarząrzania użytkownikami i projektami w obrębie własnej organizacji. Odpowiada za pełny nadzór nad projektami wewnątrz organizacji w tym tworzenie, edycja czy przypisywanie użytkowników.
+a) Bezpieczny system uwierzytelniania, aby umożliwić użytkownikom logowanie się do aplikacji przy użyciu adresu e-mail/nazwy użytkownika i hasła.
+b) Typy użytkowników cechują się różnymi uprawnieniami. Podgrupy dostępne dla <b>Snap It Out</b> to”:<br>
+<b>Admin</b> - uprawnienia do zarządzania użytkownikami oraz organizacjami - ogólne zarządządzanie dostepem, tworzenie oraz usuwanie kont w tym przypisywanie do konkretnych organizacji, zmiana typu użytkowników (zmiana roli) oraz edycja szczegółów organizacji.<br>
+<b>Manager</b> - uprawnienia do zarząrzania użytkownikami i projektami w obrębie własnej organizacji. Odpowiada za pełny nadzór nad projektami wewnątrz organizacji w tym tworzenie, edycja czy przypisywanie użytkowników.<br>
 <b>Senior; Mid; Junior; Student; </b>
 
-c) Każdy Projekt posiada 1 tablicę kanban, z której może korzystać każdy użytkownik tego projektu.
+c) Każdy Projekt posiada 1 tablicę kanban, z której może korzystać każdy użytkownik danego projektu.
 
 d) Każda tablica Kanban ma funkcjonalność "przeciągnij i upuść" w tym edycję kolumn i zadań, które może tworzyć dowolny użytkownik tego projektu.
-3 domyślne kolumny o nazwach : 
-|<b>ZADANIA</b> (TASKS)|<b>W TOKU</b> (IN PROGRES)|<b>ZROBIONE</b>|
+3 domyślne kolumny o nazwach z możliwością ich zmian oraz dodawania nowych: 
+|<b>ZADANIA</b> (TASKS)|<b>W TOKU</b> (IN PROGRES)|<b>ZROBIONE (DONE)</b>|
 --- | --- | --- 
 ||||
 
@@ -43,15 +42,15 @@ f) Każde zadanie kolumny tablicy Kanban posiada atrybuty takie jak:
 - Planowa data zakończenia/Datę zakończenia,
 - Ważność zadania od 1 do 5 oznaczane dodatkowo odpowiednim kolorem.
 
-<b> Wszyscy użytkownicy projektu będą mogli zmienić kolor tylko swoich zadań. </b>
+<b> Wszyscy użytkownicy projektu mogą zmienić kolor (ważność) tylko swoich (przypisanych im) zadań. </b>
 
-Baza danych MySQL zawiera informacje o:
-- użytkownikach, 
+Baza danych MySQL stworzona na podstawie pliku JavaScript ![setup.js](https://github.com/OliverAndreasHood/Projekt_PAI_2021/tree/main/nodejs/assets/modules/database), który zawiera informacje o:
+- użytkownikach, ich rolach i przynależności do organizacji oraz przypisanych zadaniach, 
 - organizacjach, 
 - projektach organizacji, 
 - tablicach Kanban wewnątrz projektów, 
-- kolumnach wewnątrz tablic Kanban
-- zadaniach wewnątrz kolumn 
+- kolumnach wewnątrz tablic Kanban,
+- zadaniach wewnątrz kolumn.
 
 #### 2.3 Model komunikacji
 Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wykonywanie operacji, nie będąc ograniczonym przez kolejność poleceń kodu. Dzięki temu możliwe jest wykonywanie kodu, który nie jest zależny od rozpoczętej (i jeszcze niezakończonej) operacji. Wykorzystując wyrażenie await, wstrzymujemy wywołanie asynchronicznych funkcji do chwili otrzymania deklaracji – np. komunikaty o udanym połączeniu.
@@ -79,14 +78,19 @@ Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wyk
 	- ważność tasków - pinholeye
 
 ### 4. Analiza zagadnienia i jego modelowanie
-Model Architektury:
+Model Architektury:<br>
 ![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
+
+Model Bazy Danych:<br>
+![DB Arch](https://user-images.githubusercontent.com/76792018/127068000-14a22837-6f55-41ee-8aed-649b13abf04c.png)
+
 
 ### 5. Implementacja i testowanie
 Na każdym etapie komunikacji między metodami i funkcjonalnościami sprawdzano treść komunikatów z wykorzystaniem console.log pod kątem ich poprawności.
+---
+![login1](https://user-images.githubusercontent.com/76792018/127058585-70c2aff5-4cd1-4642-93e4-3e03b47bfa0b.png)
 
 #### System uwierzytelniania:
-![login1](https://user-images.githubusercontent.com/76792018/127058585-70c2aff5-4cd1-4642-93e4-3e03b47bfa0b.png)
 
 System wymaga założenia konta przez administratora (konto Admin) w tym podania nazwy, maila oraz hasła. Następnie próba zalogiwania się jest sprawdzana i użytkownik uzyskuje odpowiedni Token i status zapisywany w localStorage przeglądarki dzięki czemu ma dostęp do pozostałych funkcjonalności aplikacji.
 ```
