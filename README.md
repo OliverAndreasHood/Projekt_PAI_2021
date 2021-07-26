@@ -4,14 +4,13 @@
 
   Snap It Out jest aplikacją pozwalającą zarządzać zadaniami za pomocą tablic. Umożliwia zalogowanie się oraz rozporządzanie zadaniami w obrębie organizacji oraz projektów dla użytkowników w zależności od ich uprawnień. Za pomocą tablic możliwe jest systematyzowanie zadań oraz przypisywanie ich do użytkowników oraz etapów pracy. 
   Aplikacja ma na celu ukazywać prosty i przejrzysty sposób planowania, rozdziału oraz kontroli zadań. Pozwala na utworzenie i zarządzanie projektami w obrębie organizacji, widoczny podział etapów projektu, a także przypisanie poszczególnych zadań do użytkowników. 
-Zaproponowana aplikacja jest tylko elementem postawionego problemu biznesowego, który ma za zadanie uzupełniać obraną strategię zarządzania organizacją.
-
+Zaproponowana aplikacja jest tylko elementem postawionego problemu biznesowego, który ma za zadanie uzupełniać konkretną strategię zarządzania organizacjami lub zespołami.
 
 ### 2. Wymagania systemowe i funcjonalne
-Import potrzebnych bibliotek:
-- React 
-- NodeJS
-- JavaScript
+Import potrzebnych bibliotek i modułów:
+- NodeJS (patrz: ![package.js](https://github.com/OliverAndreasHood/Projekt_PAI_2021/blob/main/nodejs/package.json))
+- React (patrz: ![package.js](https://github.com/OliverAndreasHood/Projekt_PAI_2021/blob/main/react/package.json))
+- JavaScript 
 - SQL (MySQL) - preferowany program XAMPP Apache 
 
 #### 2.1 Model Architektury
@@ -88,6 +87,11 @@ Model Bazy Danych:<br>
 ![DB Arch](https://user-images.githubusercontent.com/76792018/127069882-9bc2ab84-985e-4c7f-a60f-bef964e18535.png)
 
 Model relacji powłoki funkcjonalnej Front
+---
+---
+---
+---
+
 ### 5. Implementacja i testowanie
 Na każdym etapie komunikacji między metodami i funkcjonalnościami sprawdzano treść komunikatów z wykorzystaniem console.log pod kątem ich poprawności.
 ---
