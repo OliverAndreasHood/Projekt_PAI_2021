@@ -15,7 +15,10 @@ Import potrzebnych bibliotek:
 - SQL (MySQL) - preferowany program XAMPP Apache 
 
 #### 2.1 Model Architektury
-Architektura Model-View-Controller  
+![model](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
+
+W architekturze aplikacji wykorzystano Model-View-Controller, dzieląc ją na 3 warstwy: kontroler, który odpowiada za zarządzanie zapytaniami, oraz komunikuje się z widokiem, model, który zarządza logiką danych oraz komunikuje się z bazą danych (zarządza danymi) oraz widok, który odpowiada za prezentację otrzymanych danych. 
+Komunikacja między kontrolerem oraz modelem jest zarządzana przez Express, model – MySQL, natomiast za widok odpowiada React. 
 	
 #### 2.2 Funkcjonalnosci   
 
@@ -31,6 +34,7 @@ c) Każdy Projekt posiada 1 tablicę kanban, z której może korzystać każdy u
 d) Każda tablica Kanban ma funkcjonalność "przeciągnij i upuść" w tym edycję kolumn i zadań, które może tworzyć dowolny użytkownik tego projektu.
 3 domyślne kolumny o nazwach : 
 |<b>ZADANIA</b> (TASKS)|<b>W TOKU</b> (IN PROGRES)|<b>ZROBIONE</b>|
+--- | --- | --- 
 ||||
 
 e) Każda kolumna tablicy Kanban będzie mieć zadania (TASKI), które można przeciągać i przenosić, które może tworzyć dowolny użytkownik tego projektu, ale mogą być usuwane tylko przez użytkownika z rangą "Manager" organizacji (który jest również kierownikiem projektów tej organizacji).
@@ -39,11 +43,13 @@ f) Każde zadanie kolumny tablicy Kanban posiada atrybuty takie jak:
 - Data rozpoczęcia, 
 - Planowa data zakończenia/Datę zakończenia,
 - Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem:
+	'''diff
 	- Zielony
 	- Niebieski
 	- Żółty
 	- Pomarańczowy
 	- Czerwony
+	'''
 <b> Wszyscy użytkownicy projektu będą mogli zmienić kolor tylko swoich zadań. </b>
 
 Baza danych MySQL zawiera informacje o:
