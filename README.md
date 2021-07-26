@@ -82,7 +82,8 @@ Model Architektury:<br>
 ![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
 
 Model Bazy Danych:<br>
-![DB Arch](https://user-images.githubusercontent.com/76792018/127068000-14a22837-6f55-41ee-8aed-649b13abf04c.png)
+![DB Arch](https://user-images.githubusercontent.com/76792018/127069882-9bc2ab84-985e-4c7f-a60f-bef964e18535.png)
+
 
 
 ### 5. Implementacja i testowanie
@@ -173,14 +174,47 @@ oraz działające na podobnej zasadzie przenoszenie zadań.
 
 #### Struktura tablic i Atrybuty zadań - zdefiniowane w strukturach bazy danych:
 1. Data rozpoczęcia, 
+>     start_date: {
+>       type: DataTypes.DATE,
+>       allowNull: false, },
+    
 2. Planowa data zakończenia/Datę zakończenia,
+>     end_date: {
+>       type: DataTypes.DATE,
+>       allowNull: false, },
+    
 3. Ważność zadania od 1 do 5 oznaczane odpowiednim kolorem.
+>     importance: {
+>        type: DataTypes.ENUM,
+>        values: ["1","2","3","4","5"],
+>       defaultValue: "1",
+>       allowNull: false, },
+
+```
+[/react/src/components/kanbancolumncard.js|line(24-31)]
+            colors: [ // Colors for importance 1 to 5
+                {i: null, color: "black"},
+                {i: 1, color: "#02b311"},
+                {i: 2, color: "#cbff63"},
+                {i: 3, color: "#ffea00"},
+                {i: 4, color: "#ed8a00"},
+                {i: 5, color: "#db2500"},
+            ],
+```
 
 <b>Struktura:</b>
 ![kanban1](https://user-images.githubusercontent.com/76792018/127059201-facb7305-dbb5-4d2d-97b4-0c66c3b0c427.png)
 
 ### 6. Podsumowanie
 W ramach projektu SnapItOut zrealizowano więszkość zamierzonych funkcjonalności. Zaimplementowane rozwiązania działają bez zarzutów. Komunikacja między poszczególnymi instancjami aplikacji przebiega poprawnie i realizują założenia projektu.
-W ramach dalszego rozwijania aplikacji, można podjąć się:
-- implementacji funkcjonalności serializacji zadań z wykorzystaniem skryptów w innych językach programowania, 
+
+Pomysły na rozwój przedstawionej aplikacji:
+- funkcja seryjnego dodawania zadań z wykorzystaniem skryptów w innych językach programowania, 
 - konteneryzacja poszczególnych instancji aplikacji,    
+- wykorzystanie wieloetapowej autoryzacji,
+- komunikacja z popularnymi kalendarzami sieciowymi/planerami personalnymi,
+- utworzenie systemu automatycznych powiadomień (SMS, mail),
+- dedykowana aplikacja mobilna z dostępem do tablic z powiadomieniami,
+- możliwość załączania plików i/lub odnośników w treści zadań,
+- kanał komunikacji wewnątrz aplikacji pomiędzy użytkownikami,
+- możliwość eksportu tabeli do plików zewnętrznych (zdjęcie, plik tekstowy, arkusz kalkulacyjny)
