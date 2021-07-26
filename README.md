@@ -1,20 +1,109 @@
-In each directorly (./react and ./nodejs) run:
-‚Äúnpm install‚Äù
+## Projekt
 
-Install xampp
-Run mySQL on localhost
-Create a database with user
-Put the details into .env file in nodejs directory
-Go to app.js in nodejs directory and make sure:
+Nazwa projektu: <b> ìSnap it outî </b><br>
 
-"db_setup.functions.refreshRelationshipMemory();" is commented
-‚Äúawait db_setup.functions.alterTables(true, false);‚Äù is uncommented
-Then run "node app.js"
-Comment ‚Äúawait db_setup.functions.alterTables(true, false);‚Äù
-Uncomment "db_setup.functions.refreshRelationshipMemory();"
-Run node app.js again
 
-Then you can run react app using "npm start" in react dir.
-React will be hosted on "localhost:3000" and nodejs on "localhost:3001"
+## 1.Problem biznesowy: Zarzπdzanie projektami w firmie 
 
-# You can also uncomment "newAdmin" line in app.js to create new admin account.
+Snap It Out jest aplikacjπ pozwalajπcπ zarzπdzaÊ zadaniami za pomocπ tablic. Umoøliwia zalogowanie siÍ oraz rozporzπdzanie zadaniami w obrÍbie organizacji oraz projektÛw dla uøytkownikÛw w zaleønoúci od ich uprawnieÒ. Za pomocπ tablic moøliwe jest systematyzowanie zadaÒ oraz przypisywanie ich do uøytkownikÛw oraz etapÛw pracy. 
+Aplikacja ma na celu ukazywaÊ prosty i przejrzysty sposÛb planowania, rozdzia≥u oraz kontroli zadaÒ. Pozwala na utworzenie i zarzπdzanie projektami w obrÍbie organizacji, widoczny podzia≥ etapÛw projektu, a takøe przypisanie poszczegÛlnych zadaÒ do uøytkownikÛw. 
+Zaproponowana aplikacja jest tylko elementem postawionego problemu biznesowego, ktÛry ma za zadanie uzupe≥niaÊ obranπ strategiÍ zarzπdzania organizacjπ.
+
+
+## 2.Wymagania systemowe i funcjonalne
+### Import potrzebnych bibliotek:
+- React 
+- NodeJS
+- JavaScript
+- SQL (MySQL) - preferowany program XAMPP Apache
+
+### Serwer
+Postawienie serwera w node.js na AWS
+
+### Baza Danych
+Stworzenie bazy danych w node  
+#### Struktura:  
+Tabela ze wszystkimi organizacjami -> tabela projektow -> tabela poejdynczygo (sprzezone tabele)  
+#### zdecentralizowane:
+- Tabela czlonkowie/pracownicy projektow  
++przypisane projekty/organizacje  
++w≥aúciwoúci
+- zdecentralizowany request i send  
+
+
+2.1 Model Architektury
+Architektura Model-View-Controller  
+	
+2.2 Funkcjonalnosci   
+
+Funkcje
+- Bezpieczny system uwierzytelniania, aby umoøliwiÊ uøytkownikom logowanie siÍ do aplikacji przy uøyciu adresu e-mail/nazwy uøytkownika i has≥a.
+- Typy uøytkownikÛw cechujπ siÍ rÛønymi uprawnieniami. Podgrupy dostÍpne dla <b>Snap It Out</b> toî:
+<b>Admin</b> - uprawnienia do zarzπdzania uøytkownikami oraz organizacjami - ogÛlne zarzπdzπdzanie dostepem, tworzenie oraz usuwanie kont w tym przypisywanie do konkretnych organizacji, zmiana typu uøytkownikÛw (zmiana roli) oraz edycja szczegÛ≥Ûw organizacji.
+<b>Manager</b> - uprawnienia do zarzπrzania uøytkownikami i projektami w obrÍbie w≥asnej organizacji. Odpowiada za pe≥ny nadzÛr nad projektami wewnπtrz organizacji w tym tworzenie, edycja czy przypisywanie uøytkownikÛw.
+Senior;
+Mid;
+Junior; 
+Student; 
+
+c) Kaødy Projekt posiada 1 tablicÍ kanban, z ktÛrej moøe korzystaÊ kaødy uøytkownik tego projektu.
+
+d) Kaøda tablica Kanban ma funkcjonalnoúÊ "przeciπgnij i upuúÊ" w tym edycjÍ kolumn i zadaÒ, ktÛre moøe tworzyÊ dowolny uøytkownik tego projektu.
+3 domyúlne kolumny o nazwach : <b>ZADANIA</b> (TASKS) , <b>W TOKU</b> (IN PROGRES) i <b>ZROBIONE</b>.
+
+e) Kaøda kolumna tablicy Kanban bÍdzie mieÊ zadania (TASKI), ktÛre moøna przeciπgaÊ i przenosiÊ, ktÛre moøe tworzyÊ dowolny uøytkownik tego projektu, ale mogπ byÊ usuwane tylko przez uøytkownika z rangπ "Manager" organizacji (ktÛry jest rÛwnieø kierownikiem projektÛw tej organizacji).
+
+f) Kaøde zadanie kolumny tablicy Kanban posiada atrybuty takie jak:
+- Data rozpoczÍcia, 
+- Planowa data zakoÒczenia/DatÍ zakoÒczenia,
+- WaønoúÊ zadania od 1 do 5 oznaczane odpowiednim kolorem:
+	- Zielony
+	- Niebieski
+	- ØÛ≥ty
+	- PomaraÒczowy
+	- Czerwony
+<b> Wszyscy uøytkownicy projektu bÍdπ mogli zmieniÊ kolor tylko swoich zadaÒ. </b>
+
+Baza danych MySQL zawiera informacje o:
+- uøytkownikach, 
+- organizacjach, 
+- projektach organizacji, 
+- tablicach Kanban wewnπtrz projektÛw, 
+- kolumnach wewnπtrz tablic Kanban
+- zadaniach wewnπtrz kolumn 
+
+2.3 Model komunikacji asychroniczny  
+
+3. Harmonogram prac i zespÛ≥ projektowy
+
+Cz≥onkowie zespo≥u: 
+- Magdalena Lipka aka Frog-Has-Curls, 
+- Piotr Szulc aka OAH, 
+- Oskar Gniewek aka pinholeye (<b>Tech-lead</b>).<br>
+
+- 1.Inicjacja úrodowiska w NodeJS - Frog-Has-Curls 
+	- Przygotowanie potrzebnych paczek  
+- 2.Poπczenie z serwerem - Frog-Has-Curls  
+- 3.Polπczenie dockera - Frog-Has-Curls 
+- 4.Implemntacja baz danych + docker - OAH
+- 5.Inicjacja úrodowiska React - pinholeye
+- 6.Kolumny i caly interface CSS - pinholeye 
+- 7.Funcjonalnosci - pinholeye + OAH 
+    - Logowanie uzytkownikow - OAH 
+	- dodawanie/usuwanie taskow - pinholeye
+	- drag and drop - pinholeye 
+	- archiwizacja skonczonych taksow - pinholeye 
+	- waønoúÊ taskÛw - pinholeye
+
+4. Analiza zagadnienia i jego modelowanie
+
+5. Implementacja i testowanie
+
+6. Podsumowanie
+
+## Harmonogram prac i zespÛ≥ projektowy start - 25.05
+
+
+      
+### Analiza zagadnienia i jego modelowanie
+see branch
