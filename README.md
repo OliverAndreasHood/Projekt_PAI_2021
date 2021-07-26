@@ -63,29 +63,31 @@ Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wyk
 - Oskar Gniewek aka pinholeye (<b>Tech-lead</b>).<br>
 
 #### 3.2 Harmonogram
-- 1.Inicjacja środowiska w NodeJS - Frog-Has-Curls 
-	- Przygotowanie potrzebnych paczek  
-- 2.Połączenie z serwerem - Frog-Has-Curls  
-- 3.Polączenie dockera - Frog-Has-Curls 
-- 4.Implemntacja baz danych + docker - OAH
-- 5.Inicjacja środowiska React - pinholeye
-- 6.Kolumny i cały interface CSS - pinholeye 
-- 7.Funcjonalnosci - pinholeye + OAH 
-    - Logowanie uzytkownikow - OAH 
-	- dodawanie/usuwanie taskow - pinholeye
-	- drag and drop - pinholeye 
-	- archiwizacja skonczonych taksow - pinholeye 
-	- ważność tasków - pinholeye
+1.Inicjacja środowiska w NodeJS - Frog-Has-Curls - 3dni
+  - Przygotowanie potrzebnych paczek  
+2.Połączenie z serwerem - Frog-Has-Curls - 7 dni
+3.Polączenie dockera - Frog-Has-Curls - 7 dni
+4.Implemntacja baz danych + docker - OAH - 5 dni
+5.Inicjacja środowiska React - pinholeye - 3 dni
+6.Kolumny i cały interface CSS - pinholeye  - 7 dni
+7.Funcjonalnosci - pinholeye + OAH  - 25 dni
+  - Logowanie uzytkownikow - OAH
+  - dodawanie/usuwanie taskow - pinholeye
+  - drag and drop - pinholeye
+  - archiwizacja skonczonych taksow - pinholeye
+  - ważność tasków - pinholeye
+8. Dokumentacja projektu FHC, OAH, pinholeye - 10 dni
 
 ### 4. Analiza zagadnienia i jego modelowanie
+Zagadnienie wymaga szybkiego i sprawnego modelu architektury komunikacyjnej przy jednoczesnej możliwości rozwoju kolejnych funkcjonalności opartych o ten sam model bazy danych. Korzystanie z systemu zarządzania bazami danych MySQL w chwili wprowadzania kolejnych zmian w działającej aplikacji, nie będzie wymagał kasowania danych już istniejących użytkowników.
+
 Model Architektury:<br>
 ![ArchModel](https://cdn.discordapp.com/attachments/789568040433352714/869276934025138176/the-mvc-pattern.png)
 
 Model Bazy Danych:<br>
 ![DB Arch](https://user-images.githubusercontent.com/76792018/127069882-9bc2ab84-985e-4c7f-a60f-bef964e18535.png)
 
-
-
+Model relacji powłoki funkcjonalnej Front
 ### 5. Implementacja i testowanie
 Na każdym etapie komunikacji między metodami i funkcjonalnościami sprawdzano treść komunikatów z wykorzystaniem console.log pod kątem ich poprawności.
 ---
