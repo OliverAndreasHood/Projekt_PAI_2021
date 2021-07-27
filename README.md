@@ -86,11 +86,8 @@ Model Architektury:<br>
 Model Bazy Danych:<br>
 ![DB Arch](https://user-images.githubusercontent.com/76792018/127069882-9bc2ab84-985e-4c7f-a60f-bef964e18535.png)
 
-Model relacji powłoki funkcjonalnej Front
----
----
----
----
+Model relacji powłoki React
+![interakcje](https://user-images.githubusercontent.com/76792018/127105951-5f5be3db-0262-4538-833e-3bbeba2c45c5.png)
 
 ### 5. Implementacja i testowanie
 Na każdym etapie komunikacji między metodami i funkcjonalnościami sprawdzano treść komunikatów z wykorzystaniem console.log pod kątem ich poprawności.
