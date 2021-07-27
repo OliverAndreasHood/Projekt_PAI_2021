@@ -62,20 +62,19 @@ Model asynchroniczny pozwala na wielowątkowe działanie, które przyspiesza wyk
 - Oskar Gniewek aka pinholeye (<b>Tech-lead</b>).<br>
 
 #### 3.2 Harmonogram
-1.Inicjacja środowiska w NodeJS - Frog-Has-Curls - 3dni
-  - Przygotowanie potrzebnych paczek  
-2.Połączenie z serwerem - Frog-Has-Curls - 7 dni
-3.Polączenie dockera - Frog-Has-Curls - 7 dni
-4.Implemntacja baz danych + docker - OAH - 5 dni
-5.Inicjacja środowiska React - pinholeye - 3 dni
-6.Kolumny i cały interface CSS - pinholeye  - 7 dni
-7.Funcjonalnosci - pinholeye + OAH  - 25 dni
-  - Logowanie uzytkownikow - OAH
-  - dodawanie/usuwanie taskow - pinholeye
-  - drag and drop - pinholeye
-  - archiwizacja skonczonych taksow - pinholeye
-  - ważność tasków - pinholeye
-8. Dokumentacja projektu FHC, OAH, pinholeye - 10 dni
+1. Inicjacja środowiska w NodeJS i przygotowanie potrzebnych paczek - Frog-Has-Curls - 3dni <br> 
+2. Połączenie z serwerem - Frog-Has-Curls - 7 dni <br>
+3. Polączenie dockera - Frog-Has-Curls - 7 dni <br>
+4. Implemntacja baz danych + docker - OAH - 5 dni <br>
+5. Inicjacja środowiska React - pinholeye - 3 dni <br>
+6. Kolumny i cały interface CSS - pinholeye  - 7 dni <br>
+7. Funcjonalnosci - pinholeye + OAH  - 25 dni <br>
+	- Logowanie uzytkownikow - OAH
+	- dodawanie/usuwanie taskow - pinholeye
+	- drag and drop - pinholeye
+	- archiwizacja skonczonych taksow - pinholeye
+	- ważność tasków - pinholeye
+8. Dokumentacja projektu FHC, OAH, pinholeye - 10 dni <br>
 
 ### 4. Analiza zagadnienia i jego modelowanie
 Zagadnienie wymaga szybkiego i sprawnego modelu architektury komunikacyjnej przy jednoczesnej możliwości rozwoju kolejnych funkcjonalności opartych o ten sam model bazy danych. Korzystanie z systemu zarządzania bazami danych MySQL w chwili wprowadzania kolejnych zmian w działającej aplikacji, nie będzie wymagał kasowania danych już istniejących użytkowników.
